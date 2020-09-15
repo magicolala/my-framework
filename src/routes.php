@@ -1,11 +1,22 @@
 <?php
+
+use App\Controller\GreetingController;
+use App\Controller\PageController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
 $routes = new RouteCollection();
 
-$routes->add('hello', new Route('/hello/{name}', ['name' => 'World']));
-$routes->add('bye', new Route('/bye'));
-$routes->add('about', new Route('/about'));
+$routes->add('hello', new Route('/hello/{name}', [
+    'name'        => 'World',
+    '_controller' => [new GreetingController, 'hello']]));
+$routes->add('bye', new Route('/bye', [
+    '_controller' => [new GreetingController, 'bye']
+]));
+$routes->add('cms/about', new Route('/about', [
+    '_controller' => [new PageController, 'about']
+]));
 
 return $routes;
