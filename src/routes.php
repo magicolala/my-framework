@@ -2,8 +2,6 @@
 
 use App\Controller\GreetingController;
 use App\Controller\PageController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 

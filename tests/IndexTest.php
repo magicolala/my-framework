@@ -12,10 +12,10 @@ class IndexTest extends TestCase
      */
     public function testHello()
     {
-        $_GET['name'] = 'Cédric';
+        $name = 'Cédric';
 
         ob_start();
-        include 'index.php';
+        include __DIR__ . '/../src/pages/hello.php';
         $content = ob_get_clean();
 
         $this->assertEquals('Hello Cédric', $content);
